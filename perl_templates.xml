@@ -1361,4 +1361,84 @@ if (ExistsError()) {
 }</template><template context="perl" description="isa_ok from More package" enabled="true" name="isa_ok">isa_ok($$object, 'DE_EPAGES::Object::API::Object::Object');</template><template context="perl" description="perl more is" enabled="true" name="is">is($$${TestValue},$$${ExpectedValue},'Test was fine') or diag "The Value:$$${TestValue} is not: $$${ExpectedValue}";</template><template context="perl" description="unless defined $var" enabled="true" name="unless defined">unless defined ${cursor};</template><template context="perl" description="Test Perl more is_deeply" enabled="true" name="is_deeply(">is_deeply($$got_complex_structure, $$expected_complex_structure, 'description');</template><template context="perl" description="" enabled="true" name="myDumper">use Data::Dumper;
 warn Dumper ${cursor}</template><template context="perl" description="print Dumper ${cursor};" enabled="true" name="printdumper">use Data::Dumper;
 print Dumper ${cursor};</template><template context="perl" description="" enabled="true" name="warndumper">use Data::Dumper;
-warn Dumper ${cursor};</template><template context="perl" description="return unless defined ${cursor};" enabled="true" name="returnunlessdefined">return unless defined ${cursor};</template><template context="perl" description="return ${cursor};" enabled="true" name="return">return ${cursor};</template><template context="perl" description="TestArray('name',$name');" enabled="true" name="TestArray">TestArray('${Keyword}', $$${Keyword});</template><template context="perl" description="note ('--------------------------------------------------');" enabled="true" name="NoteLn">note ('--------------------------------------------------');</template><template context="perl" description="note('');" enabled="true" name="note">note('${cursor}');</template><template context="perl" description="object handling without database connection" enabled="true" name="useBaseObject">use base DE_EPAGES::Core::API::Object::BaseObject;</template><template context="perl" description="isValid" enabled="true" name="isValid">isValid(${cursor})</template><template context="perl" description="push" enabled="true" name="push">push(@{${cursor}},$$Value);</template></templates>
+warn Dumper ${cursor};</template><template context="perl" description="return unless defined ${cursor};" enabled="true" name="returnunlessdefined">return unless defined ${cursor};</template><template context="perl" description="return ${cursor};" enabled="true" name="return">return ${cursor};</template><template context="perl" description="TestArray('name',$name');" enabled="true" name="TestArray">TestArray('${Keyword}', $$${Keyword});</template><template context="perl" description="note ('--------------------------------------------------');" enabled="true" name="NoteLn">note ('--------------------------------------------------');</template><template context="perl" description="note('');" enabled="true" name="note">note('${cursor}');</template><template context="perl" description="object handling without database connection" enabled="true" name="useBaseObject">use base DE_EPAGES::Core::API::Object::BaseObject;</template><template context="perl" description="isValid" enabled="true" name="isValid">isValid(${cursor})</template><template context="perl" description="push" enabled="true" name="push">push(@{${cursor}},$$Value);</template><template context="perl" description="helps to generate all neede elements for a simple package " enabled="true" name="package starter"># §package      ${packagename}
+# §state        public
+#----------------------------------------------------------------------------------------
+# §description  description
+#----------------------------------------------------------------------------------------
+# §example      example
+#========================================================================================
+package ${packagename};
+
+use strict;
+
+#========================================================================================
+# §function     new
+# §state        public
+#----------------------------------------------------------------------------------------
+# §syntax       new( );
+#----------------------------------------------------------------------------------------
+# §description  constuctor
+#----------------------------------------------------------------------------------------
+# §return       $$self | self | ${packagename}
+#========================================================================================
+sub new {
+    my $$class = shift;
+    my %args  = @_;
+    my $$self  = bless {}, $$class;
+    return $$self;
+}
+
+${cursor}
+
+1;</template><template context="perl" description="anti pokemon exception" enabled="true" name="eval">eval {
+    ${cursor}
+};
+if ( ExistsError() ) {
+    my $$Error = GetError();
+    if ( $$Error-&gt;code() eq 'ExceptedErrorCode' ) {
+        # do your magic
+    } else {
+        Error($$Error); #forward all other Errors
+    }
+}</template><template context="perl" description="test with import xml based on core " enabled="true" name="test import xml">package ${packagename};
+use base DE_EPAGES::Shop::API::TestImportXML;
+
+use Test::More;
+
+use strict;
+
+#----------------------------------------------------------------------------------------
+# Wrap for DE_EPAGES::Shop::API::TestImportXML
+# You need to override this methods in other to use
+#----------------------------------------------------------------------------------------
+sub shopAlias {
+    return 'ShopAliasInTheXMLFile';
+}
+sub importXMLPath {
+    return 'RelativePath/ShopXMLs.xml';
+}
+#----------------------------------------------------------------------------------------
+
+sub test {
+    my $$self = shift;
+    $$self-&gt;;test_something();
+    done_testing();
+}
+
+sub test_something {
+    my $$self = shift;
+    my $$SubTestName = (caller(0))[3];
+
+    ok(1,"$$SubTestName - tests if something is fine");
+    return;
+}
+
+
+__PACKAGE__-&gt;runScript();
+
+
+1;</template><template context="perl" description="sub test" enabled="true" name="subtest">sub test${Something} {
+    my $$SubTestName = (caller(0))[3];
+     ok(0,"$$SubTestName - explain what is tested - explain what you espected");
+}</template></templates>
