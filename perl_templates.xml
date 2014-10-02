@@ -15,4 +15,11 @@ sub test_Something {
     ok(1,"$$SubTestName - selftest");
 }
 
-__PACKAGE__-&gt;runScript();</template></templates>
+
+__PACKAGE__-&gt;runScript();
+
+
+1;</template><template context="perl" description="sub test" enabled="true" name="subtest">sub test${Something} {
+    my $$SubTestName = (caller(0))[3];
+     ok(0,"$$SubTestName - explain what is tested - explain what you espected");
+}</template></templates>
