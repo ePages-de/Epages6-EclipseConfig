@@ -1459,4 +1459,7 @@ sub test_Something {
     ok(1,"$$SubTestName - selftest");
 }
 
-__PACKAGE__-&gt;runScript();</template><template context="perl" description="get the path of a method" enabled="true" name="TestName">my $$SubTestName = (caller(0))[3];</template><template context="perl" description="get the path of a method" enabled="true" name="subtestname">my $$SubTestName = (caller(0))[3];</template><template context="perl" description="ok assert" enabled="true" name="ok">ok(1,"$$SubTestName - explain what is tested");</template><template context="perl" description="is assert" enabled="true" name="is">is(${cursor},1,"$$SubTestName - explain what is tested");</template></templates>
+__PACKAGE__-&gt;runScript();</template><template context="perl" description="get the path of a method" enabled="true" name="TestName">my $$SubTestName = (caller(0))[3];</template><template context="perl" description="get the path of a method" enabled="true" name="subtestname">my $$SubTestName = (caller(0))[3];</template><template context="perl" description="ok assert" enabled="true" name="ok">ok(1,"$$SubTestName - explain what is tested");</template><template context="perl" description="is assert" enabled="true" name="is">is(${cursor},1,"$$SubTestName - explain what is tested");</template><template context="perl" description="throws_ok unit test (dont forget to use use Test::Exception)" enabled="true" name="throws_ok">throws_ok( sub {  },
+               qr/ErrorMessage/,
+               "$$SubTestName - test if..."
+     );</template></templates>
