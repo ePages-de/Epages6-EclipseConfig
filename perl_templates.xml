@@ -240,7 +240,7 @@ while ( ${condition} );</template><template context="perl" description="for loop
 );</template><template context="perl" description="hash reference definition" enabled="true" name="my $hashref = {}">my $$h${Hash} = {
     '${Key1}' =&gt; ${Value1},
     ${cursor}
-};</template><template context="perl" description="Test regular expression" enabled="true" name="regex match">$${var} =~ m/${regex}/</template><template context="perl" description="Test regular expression" enabled="true" name="regex missmatch">$${var} !~ m/${regex}/</template><template context="perl" description="Replace with regular expression" enabled="true" name="regex replace">$$${var} =~ s/${reg_search}/${reg_replace}/</template><template context="perl" description="Replace with transliteration" enabled="true" name="transliteration">$$${var} =~ tr/${source}/${replace}/</template><template context="perl" description="Subroutine" enabled="true" name="sub">sub ${name} {
+};</template><template context="perl" description="Test regular expression" enabled="true" name="regex match">$${var} =~ m/${regex}/</template><template context="perl" description="Test regular expression" enabled="true" name="regex missmatch">$${var} !~ m/${regex}/</template><template context="perl" description="Replace with regular expression" enabled="true" name="regex replace">$$${var} =~ s/${reg_search}/${reg_replace}/</template><template context="perl" description="Replace with transliteration" enabled="true" name="transliteration">$$${var} =~ tr/${source}/${replace}/</template><template context="perl" description="function" enabled="true" name="sub">sub ${name} {
     my ($$${Arguments}) = @_;
     ${cursor}
 }</template><template context="perl" description="Open input file" enabled="true" name="open input file">my	$$INFILE_filename = '${filename}'; # input file name
@@ -1054,7 +1054,7 @@ sub end_${Element} {&#13;
     my $$${ElementClass} = $$self-&gt;popID('${Parent}');&#13;
     my $$Obj = $$self-&gt;topID('${Parent}');&#13;
     $$Obj-&gt;${Setter}($$${ElementClass});&#13;
-}</template><template context="perl" description="Subroutine" enabled="true" name="sub">sub ${name} {
+}</template><template context="perl" description="method" enabled="true" name="sub">sub ${name} {
     my $$self = shift;
     my ($$${Arguments}) = @_;
     ${cursor}
@@ -1351,7 +1351,7 @@ EOL&#13;
 &#13;
 }&#13;
 &#13;
-1;</template><template context="perl" description="" enabled="true" name="usestrict">use strict;</template><template context="perl" description="Doc separation line" enabled="true" name="#---------">#----------------------------------------------------------------------------------------</template><template context="perl" description="my ($Arguments) = @_;" enabled="true" name="@_">my ($$Arguments) = @_;</template><template context="perl" description="was man so als erstes in eine Klassekippen muss" enabled="true" name="classStart">${filename}</template><template context="perl" description="" enabled="true" name="TestString">TestString('${Keyword}', $$${Keyword});</template><template context="perl" description="Errorhandling" enabled="true" name="Error(">Error( 'MissingParameter', { Parameter =&gt; 'Value' } ) unless $$Value;</template><template context="perl" description="ProhibitPathConcatenation" enabled="true" name="ProhibitPathConcatenation">ProhibitPathConcatenation</template><template context="perl" description="ProhibitPrivateSubroutineUse" enabled="true" name="ProhibitPrivateSubroutineUse">ProhibitPrivateSubroutineUse</template><template context="perl" description="ProhibitMagicNumbers" enabled="true" name="ProhibitMagicNumbers">ProhibitMagicNumbers</template><template context="perl" description="dereferencing self object" enabled="true" name="self-&gt;">$$self-&gt;</template><template context="perl" description="eval which forward the nativdie" enabled="true" name="evalnativdie">eval {
+1;</template><template context="perl" description="" enabled="true" name="usestrict">use strict;</template><template context="perl" description="Doc separation line" enabled="true" name="#---------">#----------------------------------------------------------------------------------------</template><template context="perl" description="my ($Arguments) = @_;" enabled="true" name="@_">my ($$Arguments) = @_;</template><template context="perl" description="was man so als erstes in eine Klassekippen muss" enabled="true" name="classStart">${filename}</template><template context="perl" description="" enabled="true" name="TestString">TestString('${Keyword}', $$${Keyword});</template><template context="perl" description="Errorhandling" enabled="true" name="Error(">Error( 'MissingParameter', { Parameter =&gt; 'Value' } ) unless $$Value;</template><template context="perl" description="writes the self variabel dereferencing" enabled="true" name="self">$$self-&gt;</template><template context="perl" description="ProhibitPathConcatenation" enabled="true" name="ProhibitPathConcatenation">ProhibitPathConcatenation</template><template context="perl" description="ProhibitPrivateSubroutineUse" enabled="true" name="ProhibitPrivateSubroutineUse">ProhibitPrivateSubroutineUse</template><template context="perl" description="ProhibitMagicNumbers" enabled="true" name="ProhibitMagicNumbers">ProhibitMagicNumbers</template><template context="perl" description="dereferencing self object" enabled="true" name="self-&gt;">$$self-&gt;</template><template context="perl" description="eval which forward the nativdie" enabled="true" name="evalnativdie">eval {
     ${cursor}
 };
 if (ExistsError()) {
@@ -1361,7 +1361,8 @@ if (ExistsError()) {
 }</template><template context="perl" description="isa_ok from More package" enabled="true" name="isa_ok">isa_ok($$object, 'DE_EPAGES::Object::API::Object::Object');</template><template context="perl" description="perl more is" enabled="true" name="is">is($$${TestValue},$$${ExpectedValue},'Test was fine') or diag "The Value:$$${TestValue} is not: $$${ExpectedValue}";</template><template context="perl" description="unless defined $var" enabled="true" name="unless defined">unless defined ${cursor};</template><template context="perl" description="Test Perl more is_deeply" enabled="true" name="is_deeply(">is_deeply($$got_complex_structure, $$expected_complex_structure, 'description');</template><template context="perl" description="" enabled="true" name="myDumper">use Data::Dumper;
 warn Dumper ${cursor}</template><template context="perl" description="print Dumper ${cursor};" enabled="true" name="printdumper">use Data::Dumper;
 print Dumper ${cursor};</template><template context="perl" description="" enabled="true" name="warndumper">use Data::Dumper;
-warn Dumper ${cursor};</template><template context="perl" description="return unless defined ${cursor};" enabled="true" name="returnunlessdefined">return unless defined ${cursor};</template><template context="perl" description="return ${cursor};" enabled="true" name="return">return ${cursor};</template><template context="perl" description="TestArray('name',$name');" enabled="true" name="TestArray">TestArray('${Keyword}', $$${Keyword});</template><template context="perl" description="note ('--------------------------------------------------');" enabled="true" name="NoteLn">note ('--------------------------------------------------');</template><template context="perl" description="note('');" enabled="true" name="note">note('${cursor}');</template><template context="perl" description="object handling without database connection" enabled="true" name="useBaseObject">use base DE_EPAGES::Core::API::Object::BaseObject;</template><template context="perl" description="isValid" enabled="true" name="isValid">isValid(${cursor})</template><template context="perl" description="push" enabled="true" name="push">push(@{${cursor}},$$Value);</template><template context="perl" description="helps to generate all neede elements for a simple package " enabled="true" name="package starter"># §package      ${packagename}
+warn Dumper ${cursor};</template><template context="perl" description="return unless defined ${cursor};" enabled="true" name="returnunlessdefined">return unless defined ${cursor};</template><template context="perl" description="return ${cursor};" enabled="true" name="return">return ${cursor};</template><template context="perl" description="TestArray('name',$name');" enabled="true" name="TestArray">TestArray('${Keyword}', $$${Keyword});</template><template context="perl" description="note ('--------------------------------------------------');" enabled="true" name="NoteLn">note ('--------------------------------------------------');</template><template context="perl" description="note('');" enabled="true" name="note">note('${cursor}');</template><template context="perl" description="object handling without database connection" enabled="true" name="useBaseObject">use base DE_EPAGES::Core::API::Object::BaseObject;</template><template context="perl" description="isValid" enabled="true" name="isValid">isValid(${cursor})</template><template context="perl" description="push" enabled="true" name="push">push(@{${cursor}},$$Value);</template><template context="perl" description="helps to generate all neede elements for a simple package " enabled="true" name="package starter">#========================================================================================
+# §package      ${packagename}
 # §state        public
 #----------------------------------------------------------------------------------------
 # §description  description
@@ -1441,4 +1442,24 @@ __PACKAGE__-&gt;runScript();
 1;</template><template context="perl" description="sub test" enabled="true" name="subtest">sub test${Something} {
     my $$SubTestName = (caller(0))[3];
      ok(0,"$$SubTestName - explain what is tested - explain what you espected");
-}</template></templates>
+}</template><template context="perl" description="test based on core" enabled="true" name="test framework core">package ${packagename};
+use base DE_EPAGES::Core::API::Test;
+use Test::More;
+use strict;
+
+sub test {
+    my $$self = shift;
+    $$self-&gt;test_Something();
+    done_testing();
+}
+
+sub test_Something {
+    my $$self = shift;
+    my $$SubTestName = (caller(0))[3];
+    ok(1,"$$SubTestName - selftest");
+}
+
+__PACKAGE__-&gt;runScript();</template><template context="perl" description="get the path of a method" enabled="true" name="TestName">my $$SubTestName = (caller(0))[3];</template><template context="perl" description="get the path of a method" enabled="true" name="subtestname">my $$SubTestName = (caller(0))[3];</template><template context="perl" description="ok assert" enabled="true" name="ok">ok(1,"$$SubTestName - explain what is tested");</template><template context="perl" description="is assert" enabled="true" name="is">is(${cursor},1,"$$SubTestName - explain what is tested");</template><template context="perl" description="throws_ok unit test (dont forget to use use Test::Exception)" enabled="true" name="throws_ok">throws_ok( sub {  },
+               qr/ErrorMessage/,
+               "$$SubTestName - test if..."
+     );</template></templates>
