@@ -1462,4 +1462,13 @@ sub test_Something {
 __PACKAGE__-&gt;runScript();</template><template context="perl" description="get the path of a method" enabled="true" name="TestName">my $$SubTestName = (caller(0))[3];</template><template context="perl" description="get the path of a method" enabled="true" name="subtestname">my $$SubTestName = (caller(0))[3];</template><template context="perl" description="ok assert" enabled="true" name="ok">ok(1,"$$SubTestName - explain what is tested");</template><template context="perl" description="is assert" enabled="true" name="is">is(${cursor},1,"$$SubTestName - explain what is tested");</template><template context="perl" description="throws_ok unit test (dont forget to use use Test::Exception)" enabled="true" name="throws_ok">throws_ok( sub {  },
                qr/ErrorMessage/,
                "$$SubTestName - test if..."
-     );</template></templates>
+     );</template><template context="perl" description="use DE_EPAGES::Test::Mock::EpagesObject;" enabled="true" name="useepagesobject">use DE_EPAGES::Test::Mock::EpagesObject;</template><template context="perl" description="sub for ePages object" enabled="true" name="subepagesobject">sub _create${name} {
+    my $$self = shift;
+
+    my $$hAtributes = {
+        'Alias' =&gt; 'MyTestAddress'
+    };
+    my $$${name} = DE_EPAGES::Test::Mock::EpagesObject-&gt;new( 'DE_EPAGES::${name}::API::Object::${name}', $$hAtributes );
+
+    return $$${name};
+}</template></templates>
