@@ -1459,7 +1459,17 @@ sub test_Something {
     ok(1,"$$SubTestName - selftest");
 }
 
-__PACKAGE__-&gt;runScript();</template><template context="perl" description="get the path of a method" enabled="true" name="TestName">my $$SubTestName = (caller(0))[3];</template><template context="perl" description="get the path of a method" enabled="true" name="subtestname">my $$SubTestName = (caller(0))[3];</template><template context="perl" description="ok assert" enabled="true" name="ok">ok(1,"$$SubTestName - explain what is tested");</template><template context="perl" description="is assert" enabled="true" name="is">is(${cursor},1,"$$SubTestName - explain what is tested");</template><template context="perl" description="throws_ok unit test (dont forget to use use Test::Exception)" enabled="true" name="throws_ok">throws_ok( sub {  },
+__PACKAGE__-&gt;runScript();</template><template context="perl" description="use DE_EPAGES::Test::Mock::Mockify;" enabled="true" name="usemockify">use DE_EPAGES::Test::Mock::Mockify;</template><template context="perl" description="use Mockify with GetParametersFromMockifyCall " enabled="true" name="usemockifyWithetParametersFromMockifyCall">use DE_EPAGES::Test::Mock::Mockify qw ( GetParametersFromMockifyCall );</template><template context="perl" description="create a mockifyed object" enabled="true" name="submockify">sub _create${curser} {
+    my $$self = shift;
+
+    my $$aParameterList = [];
+    my $$Mockify = DE_EPAGES::Test::Mock::Mockify-&gt;new(
+                   'DE_EPAGES::Test::API::ModuleTwo',
+                   $$aParameterList
+              );
+
+    return $$Mockify-&gt;getMockObject();
+}</template><template context="perl" description="get the path of a method" enabled="true" name="TestName">my $$SubTestName = (caller(0))[3];</template><template context="perl" description="get the path of a method" enabled="true" name="subtestname">my $$SubTestName = (caller(0))[3];</template><template context="perl" description="ok assert" enabled="true" name="ok">ok(1,"$$SubTestName - explain what is tested");</template><template context="perl" description="is assert" enabled="true" name="is">is(${cursor},1,"$$SubTestName - explain what is tested");</template><template context="perl" description="throws_ok unit test (dont forget to use use Test::Exception)" enabled="true" name="throws_ok">throws_ok( sub {  },
                qr/ErrorMessage/,
                "$$SubTestName - test if..."
      );</template><template context="perl" description="use DE_EPAGES::Test::Mock::EpagesObject;" enabled="true" name="useepagesobject">use DE_EPAGES::Test::Mock::EpagesObject;</template><template context="perl" description="sub for ePages object" enabled="true" name="subepagesobject">sub _create${name} {
