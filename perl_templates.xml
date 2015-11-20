@@ -1473,4 +1473,32 @@ __PACKAGE__-&gt;runScript();</template><template context="perl" description="get
 sub _LoadRootObject {
     my $$self = shift;
     return LoadRootObject();
+}</template><template context="perl" description="Method for creating Mockery and mocks" enabled="true" name="Mockery_createMocks">sub _createMocks {
+    my $$self = shift;
+
+    my $$Mockery = DE_EPAGES::Test::Mock::Mockery-&gt;new();
+
+    $$Mockery-&gt;register('SUT', [], sub {
+        my $$Mockify = DE_EPAGES::Test::Mock::Mockify-&gt;new('Some::Object', []);
+        return $$Mockify-&gt;getMockObject();
+    });
+    $$Mockery-&gt;register('Mock1', ['dependency'], sub {
+        my ($$Dependency) = @_;
+        my $$Object = DE_EPAGES::Test::Mock::EpagesObject-&gt;new('DE_EPAGES::Object::API::Object::Object', {
+            'Alias' =&gt; 'TestObject',
+        });
+        return $$Object;
+    });
+
+    return $$Mockery-&gt;assemble();
+}</template><template context="perl" description="imports Mockery" enabled="true" name="useMockery">use DE_EPAGES::Test::Mock::Mockery;</template><template context="perl" description="creates a test case using Mockery" enabled="true" name="Mockery_testUsingMockery">sub test {
+    my $$self = shift;
+    my $$SubTestName = (caller(0))[3];
+
+    my $$Mockery = $$self-&gt;_createMocks();
+    my $$SUT = $$Mockery-&gt;get('SUT');
+
+
+
+    ok(0, "$$SubTestName - test if ...");
 }</template></templates>
