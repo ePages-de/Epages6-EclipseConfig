@@ -1451,15 +1451,18 @@ __PACKAGE__-&gt;runScript();</template><template context="perl" description="get
               );
 
     return $$Mockify-&gt;getMockObject();
-}</template><template context="perl" description="use DE_EPAGES::Test::Mock::EpagesObject;" enabled="true" name="useepagesobject">use DE_EPAGES::Test::Mock::EpagesObject;</template><template context="perl" description="sub for ePages object" enabled="true" name="subepagesobject">sub _create${name} {
+}</template><template context="perl" description="use DE_EPAGES::Test::Mock::MockifyEpagesObject;" enabled="true" name="useepagesobject">use DE_EPAGES::Test::Mock::MockifyEpagesObject;</template><template context="perl" description="sub for ePages object" enabled="true" name="subepagesobject">sub _create${name} {
     my $$self = shift;
 
     my $$hAttributes = {
-        'Alias' =&gt; 'MyTestAddress'
+        'Alias' =&gt; 'MyShop'
     };
-    my $$${name} = DE_EPAGES::Test::Mock::EpagesObject-&gt;new( 'DE_EPAGES::${name}::API::Object::${name}', $$hAttributes );
+    my $$Mockify = DE_EPAGES::Test::Mock::MockifyEpagesObject-&gt;new(
+        'DE_EPAGES::${name}::API::Object::${name}',
+        $$hAttributes
+    );
 
-    return $$${name};
+    return $$Mockify-&gt;getMockObject();
 }</template><template context="perl" description="wrapper for LoadRootObject" enabled="true" name="LoadRootObject">#========================================================================================
 # §function     _LoadRootObject
 # §state        private
@@ -1501,4 +1504,12 @@ sub _LoadRootObject {
 
 
     ok(0, "$$SubTestName - test if ...");
+}</template><template context="perl" description="use DE_EPAGES::Test::Mock::MockifyServlet" enabled="true" name="useservlevet">use DE_EPAGES::Test::Mock::MockifyServlet;</template><template context="perl" description="create helper sub for MockifyServlet" enabled="true" name="subservlet">sub _createServlet {
+    my $$self = shift;
+    my ($$Object) = @_;
+
+    my $$Mockify = DE_EPAGES::Test::Mock::MockifyServlet-&gt;new( $$Object );
+	$$Mockify-&gt;addVar('key', 'value');
+
+    return $$Mockify-&gt;getMockObject();
 }</template></templates>
