@@ -6,5 +6,6 @@
 </listAttribute>
 <stringAttribute key="org.eclipse.ui.externaltools.ATTR_LAUNCH_CONFIGURATION_BUILD_SCOPE" value="${none}"/>
 <stringAttribute key="org.eclipse.ui.externaltools.ATTR_LOCATION" value="${PERL}"/>
-<stringAttribute key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="${env_var:EPAGES_CARTRIDGES}/DE_EPAGES/Core/Scripts/critic.pl -profile ${workspace_loc:Epages6-EclipseConfig}/perlcritic_hard_ide.conf ${selected_resource_loc}"/>
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="${env_var:EPAGES_CARTRIDGES}/DE_EPAGES/Core/Scripts/critic.pl -profile perlcritic_hard_ide.conf ${selected_resource_loc}"/>
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_WORKING_DIRECTORY" value="${workspace_loc:/EclipseConfig}"/>
 </launchConfiguration>
