@@ -49,6 +49,9 @@ function MAKE_PERL_CRITIC (){
     if [ $CRITICMODE == "hard" ] ; then
         PERLCRITICCONF="perlcritic_hard.conf"  
     fi
+    echo "delete old dat files"
+    rm -rf $EPAGES_STATIC/PerlCritic
+
     $PERL $EPAGES_CARTRIDGES/DE_EPAGES/Core/Scripts/critic.pl -profile $EPAGES_CARTRIDGES/DE_EPAGES/Core/Scripts/$PERLCRITICCONF $EPAGES_CARTRIDGES/DE_EPAGES/$CARTRIDGENAME
 }
 #############################################
