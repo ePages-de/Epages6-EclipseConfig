@@ -1501,4 +1501,79 @@ sub buildObject {
     return $$self-&gt;build($$PackageName, $$hAttributes);
 }
 
-1;</template></templates>
+1;</template><template context="perl" description="Test::Mockify template" enabled="true" name="test Test::Mockify">#========================================================================================
+# §package      ${packagename}
+# §base         DE_EPAGES::Test::API::UnitTest::Test
+#----------------------------------------------------------------------------------------
+# §description  unit test for #TODO: SUT name
+#========================================================================================
+package ${packagename};
+use base DE_EPAGES::Test::API::UnitTest::Test;
+use Test::Mockify;
+use Test::Mockify::Matcher qw ( String Number HashRef ArrayRef Object Function Undef Any );
+use Test::Mockify::Verify qw ( GetParametersFromMockifyCall WasCalled GetCallCount );
+
+use Test::More;
+
+use strict;
+
+sub test {
+    my $$self = shift;
+
+    $$self-&gt;_buildMocks();
+
+    $$self-&gt;test_Something();
+    done_testing();
+}
+#----------------------------------------------------------------------------------------
+sub test_Something {
+    my $$self = shift;
+    my $$SubTestName = (caller(0))[3];
+
+    my $$Shop = $$self-&gt;memory()-&gt;get('Shop');
+    my $$SUT = $$self-&gt;memory()-&gt;get('SUT');
+
+    ok(1,"$$SubTestName - selftest");
+}
+#----------------------------------------------------------------------------------------
+# helpers
+#----------------------------------------------------------------------------------------
+sub _buildMocks {
+    my $$self = shift;
+
+    my $$SUT = $$self-&gt;_createSUT();
+    my $$Shop = $$self-&gt;mockFactory()-&gt;buildShop({
+            'Alias' =&gt; 'TestShop',
+        })-&gt;getMockObject();
+    $$self-&gt;memory()-&gt;add('SUT', $$SUT);
+    $$self-&gt;memory()-&gt;add('Shop', $$Shop);
+}
+#----------------------------------------------------------------------------------------
+sub _createSUT {
+    my $$self = shift;
+
+    my $$aParameterList = [];
+    my $$Mockify = Test::Mockify-&gt;new(
+                   'System::Under:Test',
+                   $$aParameterList
+              );
+
+    return $$Mockify-&gt;getMockObject();
+}
+
+__PACKAGE__-&gt;runScript();</template><template context="perl" description="function template for Test::Mockify" enabled="true" name="sub Test::Mockify">#----------------------------------------------------------------------------------------
+sub _create {
+    my $$self = shift;
+
+    my $$aParameterList = [];
+    my $$Mockify = Test::Mockify-&gt;new(
+                   'DE_EPAGES::Test::API::ModuleTwo',
+                   $$aParameterList
+              );
+    $$Mockify
+        -&gt;mock('methodName')
+        -&gt;when(String())
+        -&gt;thenReturn('helloWorld');
+
+    return $$Mockify-&gt;getMockObject();
+}</template></templates>
