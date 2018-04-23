@@ -566,4 +566,4 @@ sub _create {
         -&gt;thenReturn('helloWorld');
 
     return $$Mockify-&gt;getMockObject();
-}</template><template context="perl" description="" enabled="true" name="mock">mock()-&gt;when()-&gt;thenReturn();</template><template context="perl" description="use Mockify with GetParametersFromMockifyCall " enabled="true" name="useMockifyVerify">use Test::Mockify::Verify qw ( GetParametersFromMockifyCall WasCalled GetCallCount );</template></templates>
+}</template><template context="perl" description="" enabled="true" name="mock">mock()-&gt;when()-&gt;thenReturn();</template><template context="perl" description="use Mockify with GetParametersFromMockifyCall " enabled="true" name="useMockifyVerify">use Test::Mockify::Verify qw ( GetParametersFromMockifyCall WasCalled GetCallCount );</template><template context="perl" description="like assert" enabled="true" name="like">like('hello you', qr/^hello/, "$$SubTestName - Proves that ...");</template><template context="perl" description="lives_ok assert" enabled="true" name="lives_ok">lives_ok( sub { }, "$$SubTestName - proves that..." );</template></templates>
